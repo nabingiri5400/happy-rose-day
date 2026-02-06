@@ -28,7 +28,6 @@
             overflow: hidden;
         }
 
-        /* Background layers */
         .background-layer {
             position: absolute;
             width: 100%;
@@ -49,7 +48,6 @@
             z-index: 2;
         }
 
-        /* Initial screen */
         .initial-screen {
             position: absolute;
             width: 100%;
@@ -87,7 +85,6 @@
             margin-bottom: 20px;
         }
 
-        /* GIF container */
         .gif-container {
             width: 300px;
             height: 300px;
@@ -105,7 +102,6 @@
             object-fit: cover;
         }
 
-        /* Rose bouquet container */
         .rose-bouquet-container {
             position: relative;
             width: 700px;
@@ -128,7 +124,6 @@
             z-index: 1;
         }
 
-        /* Individual roses in bouquet */
         .bouquet-rose {
             position: absolute;
             width: 120px;
@@ -147,7 +142,6 @@
             filter: brightness(1.2);
         }
 
-        /* Rose positions in bouquet */
         .rose-1 { top: 150px; left: 250px; transform: rotate(-10deg); }
         .rose-2 { top: 100px; left: 350px; transform: rotate(5deg); }
         .rose-3 { top: 180px; left: 400px; transform: rotate(15deg); }
@@ -155,7 +149,6 @@
         .rose-5 { top: 200px; left: 300px; transform: rotate(10deg); }
         .rose-6 { top: 80px; left: 280px; transform: rotate(-5deg); }
 
-        /* Animated main rose in center */
         .main-rose {
             position: absolute;
             width: 180px;
@@ -193,7 +186,6 @@
             animation: none;
         }
 
-        /* Rose center */
         .rose-center {
             position: absolute;
             top: 50%;
@@ -206,7 +198,6 @@
             z-index: 4;
         }
 
-        /* Floating leaves */
         .floating-leaf {
             position: absolute;
             width: 40px;
@@ -218,7 +209,6 @@
             animation: float 15s infinite linear;
         }
 
-        /* Click instruction */
         .click-instruction {
             position: absolute;
             bottom: 30px;
@@ -233,7 +223,6 @@
             backdrop-filter: blur(5px);
         }
 
-        /* Inside rose screen */
         .inside-rose {
             position: absolute;
             width: 100%;
@@ -305,7 +294,6 @@
             font-style: italic;
         }
 
-        /* Music player */
         .music-player {
             position: absolute;
             bottom: 30px;
@@ -337,7 +325,6 @@
             background: rgba(255, 0, 51, 0.4);
         }
 
-        /* Instructions */
         .instructions {
             position: absolute;
             bottom: 30px;
@@ -351,7 +338,6 @@
             max-width: 300px;
         }
 
-        /* Heart animations */
         .heart {
             position: absolute;
             color: #ff3366;
@@ -361,7 +347,6 @@
             pointer-events: none;
         }
 
-        /* Animations */
         @keyframes float {
             0% {
                 transform: translateY(100vh) rotate(0deg);
@@ -439,7 +424,6 @@
             }
         }
 
-        /* Responsive design */
         @media (max-width: 768px) {
             .main-title {
                 font-size: 3.5rem;
@@ -507,27 +491,22 @@
 </head>
 <body>
     <div class="container">
-        <!-- Background layers -->
         <div class="background-layer layer-1"></div>
         <div class="background-layer layer-2"></div>
         
-        <!-- Initial screen with rose bouquet -->
         <div class="initial-screen" id="initialScreen">
             <div class="title-container">
                 <h1 class="main-title">Happy Rose Day</h1>
                 <p class="subtitle">The beginning of Valentine's Week - February 7th</p>
             </div>
             
-            <!-- GIF Container -->
             <div class="gif-container">
-                <img src="images/rose-day.gif.jpeg" alt="Rose Day GIF" class="roseday-gif">
+                <img src="https://media.giphy.com/media/26tknCqiJrBQG6Dr6/giphy.gif" alt="Rose Day GIF" class="roseday-gif">
             </div>
             
             <div class="rose-bouquet-container" id="roseBouquetContainer">
-                <!-- Bouquet base -->
                 <div class="bouquet-base"></div>
                 
-                <!-- Bouquet roses -->
                 <div class="bouquet-rose rose-1"></div>
                 <div class="bouquet-rose rose-2"></div>
                 <div class="bouquet-rose rose-3"></div>
@@ -535,7 +514,6 @@
                 <div class="bouquet-rose rose-5"></div>
                 <div class="bouquet-rose rose-6"></div>
                 
-                <!-- Main animated rose -->
                 <div class="main-rose" id="mainRose">
                     <div class="rose-center"></div>
                 </div>
@@ -544,11 +522,8 @@
             </div>
         </div>
         
-        <!-- Inside the rose screen -->
         <div class="inside-rose" id="insideRose">
-            <div class="bloomed-rose" id="bloomedRose">
-                <!-- Petals will be generated by JavaScript -->
-            </div>
+            <div class="bloomed-rose" id="bloomedRose"></div>
             
             <div class="romantic-message">
                 <h2>Happy Rose Day, My Love</h2>
@@ -559,39 +534,30 @@
             </div>
         </div>
         
-        <!-- Music player -->
         <div class="music-player">
             <button class="music-btn" id="musicBtn">
                 <i class="fas fa-play"></i>
             </button>
         </div>
         
-        <!-- Instructions -->
         <div class="instructions">
             <p><i class="fas fa-heart"></i> Click on the center rose to begin</p>
             <p><i class="fas fa-music"></i> Music will play automatically</p>
             <p><i class="fas fa-mouse-pointer"></i> Click anywhere to create hearts</p>
         </div>
         
-        <!-- Floating leaves -->
         <div id="floatingLeaves"></div>
-        
-        <!-- Falling petals container -->
         <div id="fallingPetals"></div>
-        
-        <!-- Hearts container -->
         <div id="heartsContainer"></div>
     </div>
 
-    <!-- Audio for romantic music -->
     <audio id="romanticMusic" loop>
-        <source src="audio/romantic-music.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-687.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // DOM elements
             const initialScreen = document.getElementById('initialScreen');
             const insideRose = document.getElementById('insideRose');
             const mainRose = document.getElementById('mainRose');
@@ -605,182 +571,126 @@
             const layer2 = document.querySelector('.layer-2');
             const rosedayGif = document.querySelector('.roseday-gif');
             
-            // Create floating leaves
             function createFloatingLeaves() {
                 for (let i = 0; i < 20; i++) {
                     const leaf = document.createElement('div');
                     leaf.classList.add('floating-leaf');
-                    
-                    // Random properties
                     const size = Math.random() * 40 + 20;
                     const left = Math.random() * 100;
                     const animationDuration = Math.random() * 20 + 15;
                     const animationDelay = Math.random() * 10;
-                    
                     leaf.style.width = `${size}px`;
                     leaf.style.height = `${size * 0.6}px`;
                     leaf.style.left = `${left}%`;
                     leaf.style.animationDuration = `${animationDuration}s`;
                     leaf.style.animationDelay = `${animationDelay}s`;
-                    
                     floatingLeaves.appendChild(leaf);
                 }
             }
             
-            // Create rose petals for bloomed rose
             function createRosePetals() {
                 const petalCount = 24;
                 for (let i = 0; i < petalCount; i++) {
                     const petal = document.createElement('div');
                     petal.classList.add('petal');
-                    
-                    // Calculate position and rotation
                     const angle = (i / petalCount) * 360;
                     const rotation = angle;
                     const distance = i % 2 === 0 ? 120 : 180;
-                    
-                    // Position petal in a circular pattern
                     const x = Math.cos(angle * Math.PI / 180) * distance;
                     const y = Math.sin(angle * Math.PI / 180) * distance;
-                    
                     petal.style.left = `calc(50% + ${x}px)`;
                     petal.style.top = `calc(50% + ${y}px)`;
                     petal.style.setProperty('--rotation', `${rotation}deg`);
-                    
-                    // Randomize appearance slightly
                     petal.style.opacity = '0';
                     petal.style.background = `linear-gradient(to bottom, 
                         hsl(${340 + Math.random() * 20}, 100%, ${60 + Math.random() * 10}%), 
                         hsl(${340 + Math.random() * 20}, 100%, ${40 + Math.random() * 10}%))`;
-                    
-                    // Add bloom animation with delay
                     petal.style.animation = `bloom 3s ease ${i * 0.15}s forwards`;
-                    
                     bloomedRose.appendChild(petal);
                 }
             }
             
-            // Create falling petals
             function createFallingPetals() {
                 const petalCount = 60;
-                
                 for (let i = 0; i < petalCount; i++) {
                     const petal = document.createElement('div');
                     petal.classList.add('falling-petal');
-                    
-                    // Random properties
                     const left = Math.random() * 100;
                     const size = Math.random() * 40 + 20;
                     const animationDuration = Math.random() * 10 + 6;
                     const animationDelay = Math.random() * 5;
                     const rotation = Math.random() * 360;
                     const opacity = 0.5 + Math.random() * 0.5;
-                    
                     petal.style.left = `${left}%`;
                     petal.style.width = `${size}px`;
                     petal.style.height = `${size * 1.5}px`;
                     petal.style.animation = `fall ${animationDuration}s linear ${animationDelay}s infinite`;
                     petal.style.opacity = opacity;
                     petal.style.transform = `rotate(${rotation}deg)`;
-                    
-                    // Random color variation
                     const hue = 330 + Math.random() * 30;
                     petal.style.background = `linear-gradient(to bottom, 
                         hsl(${hue}, 100%, 70%), 
                         hsl(${hue}, 100%, 50%))`;
-                    
                     fallingPetals.appendChild(petal);
                 }
             }
             
-            // Create floating hearts
             function createHeart(x, y) {
                 const heart = document.createElement('div');
                 heart.classList.add('heart');
                 heart.innerHTML = '<i class="fas fa-heart"></i>';
-                
-                // Position at click location
                 heart.style.left = `${x}px`;
                 heart.style.top = `${y}px`;
-                
-                // Random size and color
                 const size = Math.random() * 30 + 20;
                 const hue = 330 + Math.random() * 30;
                 heart.style.fontSize = `${size}px`;
                 heart.style.color = `hsl(${hue}, 100%, 65%)`;
-                
-                // Random animation duration
                 const duration = Math.random() * 3 + 2;
                 heart.style.animation = `heartFloat ${duration}s ease-out forwards`;
-                
                 heartsContainer.appendChild(heart);
-                
-                // Remove heart after animation completes
                 setTimeout(() => {
                     heart.remove();
                 }, duration * 1000);
             }
             
-            // Enter the rose (zoom in effect)
             function enterRose() {
-                // Disable clicks during transition
                 mainRose.style.pointerEvents = 'none';
                 roseBouquetContainer.style.pointerEvents = 'none';
-                
-                // Zoom in effect on the main rose
                 mainRose.style.transition = 'all 2.5s ease';
                 mainRose.style.transform = 'scale(20)';
                 mainRose.style.boxShadow = 'inset 0 0 100px rgba(255, 51, 102, 1), 0 0 200px rgba(255, 51, 102, 1)';
                 
-                // Fade out other bouquet roses
                 const bouquetRoses = document.querySelectorAll('.bouquet-rose');
                 bouquetRoses.forEach(rose => {
                     rose.style.opacity = '0';
                     rose.style.transition = 'opacity 1s ease';
                 });
                 
-                // Fade out GIF
                 rosedayGif.style.opacity = '0';
                 rosedayGif.style.transition = 'opacity 1s ease';
                 
-                // Fade out initial screen
                 setTimeout(() => {
                     initialScreen.style.opacity = '0';
-                    
-                    // Show inside rose after delay
                     setTimeout(() => {
                         initialScreen.style.display = 'none';
                         insideRose.style.display = 'flex';
-                        
-                        // Fade in inside rose
                         setTimeout(() => {
                             insideRose.style.opacity = '1';
-                            
-                            // Change background
                             layer2.style.opacity = '1';
-                            
-                            // Create bloomed rose petals
                             createRosePetals();
-                            
-                            // Create falling petals
                             createFallingPetals();
-                            
-                            // Play romantic music automatically
                             romanticMusic.volume = 0.7;
                             romanticMusic.play().then(() => {
                                 musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
                             }).catch(error => {
-                                console.log("Autoplay prevented. User interaction required.");
-                                // Show play button
+                                console.log("Music autoplay prevented. Click play button.");
                                 musicBtn.innerHTML = '<i class="fas fa-play"></i>';
                             });
-                            
                         }, 100);
                     }, 500);
                 }, 2000);
             }
             
-            // Music control
             let isPlaying = false;
             musicBtn.addEventListener('click', function() {
                 if (isPlaying) {
@@ -793,13 +703,9 @@
                 isPlaying = !isPlaying;
             });
             
-            // Click anywhere to create hearts (only after entering the rose)
             document.addEventListener('click', function(e) {
-                // Only create hearts if we're inside the rose screen
                 if (insideRose.style.display === 'flex') {
                     createHeart(e.clientX, e.clientY);
-                    
-                    // Also create a few extra random hearts
                     for (let i = 0; i < 3; i++) {
                         setTimeout(() => {
                             const randomX = e.clientX + (Math.random() * 100 - 50);
@@ -810,22 +716,14 @@
                 }
             });
             
-            // Initialize
             createFloatingLeaves();
-            
-            // Add floating animation to GIF
             rosedayGif.style.animation = 'gifFloat 3s ease-in-out infinite';
-            
-            // Click on main rose to enter
             mainRose.addEventListener('click', enterRose);
-            
-            // Auto-play music when inside rose (for browsers that allow it)
             romanticMusic.addEventListener('ended', function() {
                 this.currentTime = 0;
                 this.play();
             });
             
-            // Add subtle animation to the bouquet roses
             setInterval(() => {
                 const roses = document.querySelectorAll('.bouquet-rose');
                 roses.forEach((rose, index) => {
